@@ -23,6 +23,6 @@ if (process.env.NODE_ENV === 'production') {
     app.use(express.static('./client/build'))
 }
 
-mongoose.connect(process.env.MONGO_URI)
+mongoose.connect(process.env.MONGO_URI, { useUnifiedTopology: true, useNewUrlParser: true })
     .then(() => app.listen(PORT, () => console.log(`Server running on port: ${PORT}`)))
     .catch((error) => console.log(error))
